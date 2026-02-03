@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -o errexit
 
-pip install --upgrade pip#just in case
+pip install --upgrade pip #just in case
 
 pip install gunicorn uvicorn #render cant find module otherwise 
 
