@@ -1,0 +1,8 @@
+/*
+li a {
+    color: green;
+}*/
+body {
+    background: white url("images/opinion_polls.png") no-repeat;
+    background-position: left top;
+}
