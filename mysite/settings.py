@@ -94,11 +94,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #postgresql://user:password@localhost:5432/dbname   
 
 
-os.environ.setdefault("PGDATABASE", "Exampledb")
+"""os.environ.setdefault("PGDATABASE", "Exampledb")
 os.environ.setdefault("PGUSER", "george")
 os.environ.setdefault("PGPASSWORD", "admin")
 os.environ.setdefault("PGHOST", "localhost")
-os.environ.setdefault("PGPORT", "5432")
+os.environ.setdefault("PGPORT", "5432")"""
     
 
 DATABASES = {
