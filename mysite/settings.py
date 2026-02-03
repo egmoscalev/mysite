@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-import os, sys, dj_database_url
+import os, sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -92,17 +92,19 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 #postgresql://user:password@localhost:5432/dbname   ME
 #'postgresql://postgres:postgres@localhost:5432/mysite' RENDER
-DATABASES = {
+"""DATABASES = {
     'default': dj_database_url.config(
         default='postgresql://george:admin@localhost:5432/Exampledb',
         #default='postgresql://postgres:postgres@localhost:5432/mysite',
         conn_max_age=600
     )
 
+}   
+"""
+
 
     
-}
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -112,7 +114,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-}"""
+}
 
 
 # Password validation
