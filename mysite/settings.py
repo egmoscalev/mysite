@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #'postgresql://postgres:postgres@localhost:5432/mysite' RENDER
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://mysite_o9jr_user:2lkiNA4kNnFMLbkz9K7FAKHSicSaHjIl@dpg-d6128pi4d50c73fhn8a0-a/mysite_o9jr'
+        default='postgresql://mysite_o9jr_user:2lkiNA4kNnFMLbkz9K7FAKHSicSaHjIl@dpg-d6128pi4d50c73fhn8a0-a/mysite_o9jr',
         #default='postgresql://george:admin@localhost:5432/Exampledb',
         #default='postgresql://postgres:postgres@localhost:5432/mysite',
         conn_max_age=600
