@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lctfq=&+vj!_hk(ad6bu_m@1@rg4dcsx$#c&n+2$^-&qce-p3u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['mysite-2exy.onrender.com', 'localhost', '127.0.0.1']#added allowed hosts
 
@@ -95,8 +95,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #'postgresql://postgres:postgres@localhost:5432/mysite' RENDER
 DATABASES = {
     'default': dj_database_url.config(
+        default='postgresql://mysite_o9jr_user:2lkiNA4kNnFMLbkz9K7FAKHSicSaHjIl@dpg-d6128pi4d50c73fhn8a0-a/mysite_o9jr'
         #default='postgresql://george:admin@localhost:5432/Exampledb',
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        #default='postgresql://postgres:postgres@localhost:5432/mysite',
         conn_max_age=600
     )
 
