@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-lctfq=&+vj!_hk(ad6bu_m@1@rg4dcsx$#c&n+2$^-&qce-p3u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']#added allowed hosts
+ALLOWED_HOSTS = ['*']#added allowed hosts
 
 
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -90,30 +91,24 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-#postgresql://user:password@localhost:5432/dbname   ME
-#'postgresql://postgres:postgres@localhost:5432/mysite' RENDER
-"""DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://mysite_o9jr_user:2lkiNA4kNnFMLbkz9K7FAKHSicSaHjIl@dpg-d6128pi4d50c73fhn8a0-a/mysite_o9jr',
-        #default='postgresql://george:admin@localhost:5432/Exampledb',
-        #default='postgresql://postgres:postgres@localhost:5432/mysite',
-        conn_max_age=600
-    )
-
-}   
-"""
+#postgresql://user:password@localhost:5432/dbname   
 
 
+os.environ.setdefault("PGDATABASE", "Exampledb")
+os.environ.setdefault("PGUSER", "george")
+os.environ.setdefault("PGPASSWORD", "admin")
+os.environ.setdefault("PGHOST", "localhost")
+os.environ.setdefault("PGPORT", "5432")
     
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Exampledb',
-        'USER': 'george',
-        'PASSWORD': 'admin',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ["PGDATABASE"],
+        'USER': os.environ["PGUSER"],
+        'PASSWORD': os.environ["PGPASSWORD"],
+        'HOST': os.environ["PGHOST"],
+        'PORT': os.environ["PGPORT"],
     }
 }
 
@@ -153,9 +148,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# This production code might break development mode, so we check whether we're in DEBUG mode
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 
 INTERNAL_IPS = [
